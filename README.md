@@ -44,6 +44,22 @@ To maximize portability of built products, this action builds Go binaries with [
     CGO_ENABLED: 1
 ```
 
+### Customizing go build options
+
+You can pass additional options to the `go build` command using the `go_build_options` input parameter. This is useful for specifying a different source directory or adding build tags:
+
+```yaml
+- uses: cli/gh-extension-precompile@v2
+  with:
+    go_build_options: './cmd/my-extension'
+```
+
+```yaml
+- uses: cli/gh-extension-precompile@v2
+  with:
+    go_build_options: '-tags production'
+```
+
 ### Building for Android
 
 `gh-extension-precompile@v2` introduces a breaking change by disabling `android-arm64` and `android-amd64` build targets by default due to [Go external linking requirements](https://github.com/cli/gh-extension-precompile/issues/50#issuecomment-2078086299).
