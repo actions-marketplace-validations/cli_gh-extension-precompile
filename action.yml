@@ -36,7 +36,7 @@ runs:
   using: composite
   steps:
     # TODO: figure out how to avoid setting up Go for non-Go extensions
-    - uses: actions/setup-go@v5
+    - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
       with:
         # The default go version is managed here because actions/setup-go favors go-version over go-version-file,
         # requiring us to only pass it if no other inputs are provided.
@@ -114,6 +114,6 @@ runs:
       shell: bash
 
     - if: ${{ inputs.generate_attestations == 'true' }}
-      uses: actions/attest-build-provenance@v1
+      uses: actions/attest-build-provenance@ef244123eb79f2f7a7e75d99086184180e6d0018 # v1.4.4
       with:
         subject-path: "${{ github.workspace }}/dist/*"
